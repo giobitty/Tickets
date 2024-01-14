@@ -1,0 +1,31 @@
+<div class="container mt-4">
+
+    <h1 class="text-center text-danger">{{ title }}</h1>
+  
+    <form #myForm="ngForm" (ngSubmit)="loginPost()" class="mt-4">
+  
+      <div class="mb-3">
+        <label for="nome" class="form-label">Nome</label>
+        <input type="text" id="nome" name="nome" [(ngModel)]="utente.nome" #myNome="ngModel" class="form-control" placeholder="Nome" minlength="4" required>
+        <div *ngIf="myNome.invalid && (myNome.dirty || myNome.touched)" class="text-danger">
+          <p *ngIf="myNome.errors?.['required']">Il campo è obbligatorio</p>
+          <p *ngIf="myNome.errors?.['minlength']">Il campo deve essere di almeno 4 caratteri</p>
+        </div>
+      </div>
+  
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" id="password" name="password" [(ngModel)]="utente.password" #myPassword="ngModel" class="form-control" placeholder="Password" required>
+        <div *ngIf="myPassword.invalid && (myPassword.dirty || myPassword.touched)" class="text-danger">
+          <p *ngIf="myPassword.errors?.['required']">Il campo è obbligatorio</p>
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary" [disabled]="!myForm.valid">Invia</button>
+  
+    </form>
+  
+    <hr>
+  
+  </div>
+  

@@ -1,0 +1,16 @@
+<div class="container mt-4">
+
+    <h1 class="text-center">{{ title }}</h1>
+  
+    <ul class="list-group">
+      <li *ngFor="let mostra of mostre" class="list-group-item d-flex justify-content-between align-items-center">
+        <div>
+          <h5>{{ mostra.titolo }}</h5>
+          
+          <p class="text-muted">Prezzo: {{ mostra.prezzo }} Euro</p>
+        </div>
+        <button class="btn btn-primary">Compra Biglietto</button>
+      </li>
+    </ul>
+  
+  </div>
